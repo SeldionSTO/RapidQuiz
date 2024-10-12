@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.png" type="">
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="">
+    <link rel="stylesheet" href="assets/style/style.css">
     <title>RapidQuiz</title>
 </head>
 <body>
-    <div class="quiz-body">
+    <div id="quiz" class="quiz-body">
         <div class="quiz-contents">
             <div class="quiz-title">
-                <h2>Is this a Quiz Question?</h2>
+                <h2 id="quiz-ques">Is this a Quiz Question?</h2>
             </div>
             <div class="quiz-answears">
                 <div class="answears-row">
@@ -24,11 +24,34 @@
                 </div>
             </div>
             <div class="quiz-next">
-                <button class="btn-next">Next</button>
+                <button id="btn-next" class="primary-btn">Next</button>
             </div>
         </div>
     </div>
     
-    <script src="script.js"></script>
+    <div id="result" class="result-body">
+        <div class="result-content">
+        <h2>Quiz Results</h2>
+        <div class="quiz-status">
+            <div class="status-icon">
+                <img src="assets/img/accept.png" alt="correct, check, done icon">
+            </div>
+            <p id="status-text"></p>
+        </div>
+        <div class="result-score">
+            <div class="score-procent result-card">
+                <h3>Your score</h3>
+                <p id="user-result-pct">100%</p>
+            </div>
+            <div class="score-points result-card">
+                <h3>Your Points</h3>
+                <p id="user-result-point">10</p>
+            </div>
+        </div>
+        <button id="restart-btn" class="primary-btn">Start Over</button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
