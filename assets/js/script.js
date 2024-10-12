@@ -7,6 +7,7 @@ const resultElm = document.getElementById('result')
 const statusTxt = document.getElementById('status-text')
 const statusImg = document.getElementsByClassName('status-icon')[0].querySelector('img')
 const quizElm = document.getElementById('quiz');
+const progressElm = document.getElementById('quiz-status');
 
 let quizObj;
 let q;
@@ -17,124 +18,124 @@ let userAnswears = [];
 let questionsData = 
 [
     {
-        title : "What is the term for the unequal treatment of individuals based on their race?",
-        answears : [
-            "Ageism",
-            "Sexism",
-            "Racism",
-            "Ableism"
+        "title": "What is the capital city of Japan?",
+        "answears": [
+            "Seoul",
+            "Tokyo",
+            "Beijing",
+            "Bangkok"
         ],
-        correct : 2
+        "correct": 1
     },
     {
-        title : "What does the gender pay gap refer to?",
-        answears : [
-            "Men being paid more because they work harder",
-            "Differences in pay between men and women for similar work",
-            "Differences in working hours between men and women",
-            "Men getting more promotions than women"
+        "title": "Which planet is known as the Red Planet?",
+        "answears": [
+            "Earth",
+            "Venus",
+            "Mars",
+            "Jupiter"
         ],
-        correct : 1
+        "correct": 2
     },
     {
-        title : "What is ‘implicit bias’?",
-        answears : [
-            "Conscious discrimination against a group",
-            "Unintentional, subconscious stereotypes influencing decisions",
-            "Direct actions to marginalize someone",
-            "Not seeing any kind of inequality in society"
+        "title": "In which year did the Titanic sink?",
+        "answears": [
+            "1912",
+            "1905",
+            "1920",
+            "1915"
         ],
-        correct : 1
+        "correct": 0
     },
     {
-        title : "Which group is most likely to face ‘ableism’?",
-        answears : [
-            "People from minority races",
-            "People with disabilities",
-            "People from lower-income backgrounds",
-            "People who speak multiple languages"
+        "title": "Who wrote the play 'Romeo and Juliet'?",
+        "answears": [
+            "Charles Dickens",
+            "William Shakespeare",
+            "Mark Twain",
+            "Jane Austen"
         ],
-        correct : 1
+        "correct": 1
     },
     {
-        title : "Which economic term describes the growing income gap between the rich and the poor?",
-        answears : [
-            "Economic downturn",
-            "Inflation",
-            "Wealth inequality",
-            "Capitalism"
+        "title": "Which element has the chemical symbol 'O'?",
+        "answears": [
+            "Oxygen",
+            "Osmium",
+            "Oganesson",
+            "Oxide"
         ],
-        correct : 2
+        "correct": 0
     },
     {
-        title : "What is one major cause of educational inequality?",
-        answears : [
-            "Standardized testing",
-            "Differences in school funding based on local taxes",
-            "School uniforms",
-            "Homework policies"
+        "title": "What is the largest ocean on Earth?",
+        "answears": [
+            "Atlantic",
+            "Indian",
+            "Pacific",
+            "Arctic"
         ],
-        correct : 1
+        "correct": 2
     },
     {
-        title : "What does ‘intersectionality’ describe?",
-        answears : [
-            "The combination of multiple identities (e.g., race, gender) that creates unique experiences of discrimination",
-            "The point where roads meet",
-            "The study of race exclusively",
-            "The interaction between different economic classes"
+        "title": "Which country hosted the 2016 Summer Olympics?",
+        "answears": [
+            "China",
+            "Brazil",
+            "Russia",
+            "Japan"
         ],
-        correct : 0
+        "correct": 1
     },
     {
-        title : "Which of the following is an example of gender inequality?",
-        answears : [
-            "Equal access to education for men and women",
-            "Men receiving longer prison sentences for the same crime",
-            "Women being underrepresented in leadership positions",
-            "Both genders earning the same salary for the same work"
+        "title": "What is the freezing point of water in Celsius?",
+        "answears": [
+            "0°C",
+            "32°C",
+            "100°C",
+            "-1°C"
         ],
-        correct : 2
+        "correct": 0
     },
     {
-        title : "Which factor can exacerbate housing inequality?",
-        answears : [
-            "Equal distribution of resources",
-            "Racial discrimination in mortgage lending",
-            "Improved urban planning",
-            "Access to affordable public transportation",
+        "title": "Who painted the Mona Lisa?",
+        "answears": [
+            "Vincent van Gogh",
+            "Pablo Picasso",
+            "Leonardo da Vinci",
+            "Claude Monet"
         ],
-        correct : 1
+        "correct": 2
     },
     {
-        title : "What is a common misconception about poverty?",
-        answears : [
-            "It only affects people who don’t want to work",
-            "It is solely caused by individual choices",
-            "It is influenced by systemic factors like job availability and wages",
-            "All people in poverty are uneducated"
+        "title": "Which is the smallest planet in our solar system?",
+        "answears": [
+            "Mercury",
+            "Venus",
+            "Mars",
+            "Pluto"
         ],
-        correct : 2
+        "correct": 0
     },
     {
-        title : "What is environmental inequality?",
-        answears : [
-            "Differences in access to nature reserves",
-            "Unequal exposure of marginalized communities to environmental hazards like pollution",
-            "Restrictions on traveling to national parks",
-            "Different access to gardening tools"
+        "title": "What is the main ingredient in guacamole?",
+        "answears": [
+            "Tomato",
+            "Onion",
+            "Avocado",
+            "Lime"
         ],
-        correct : 1
+        "correct": 2
     },
     {
-        title : "Which social factor often leads to health inequality?",
-        answears : [
-            "Everyone receiving the same healthcare",
-            "Limited access to healthcare for low-income groups",
-            "Universal healthcare systems",
-            "High-quality hospitals in all areas"
+        "title": "How many continents are there on Earth?",
+        "answears": [
+            "5",
+            "6",
+            "7",
+            "8"
         ],
-        correct : 1
+        "correct": 2
     }
 ]
 
@@ -232,6 +233,7 @@ function handleNextBtn() {
         }
         
         currentQ += 1;
+        progressElm.innerText = `${currentQ}/${questionsData.length}`;
         q.storeUserAns(q.userSelection);
         loadQues(currentQ)
     } 
@@ -251,6 +253,7 @@ function startQuiz(name = 'default', passRate = 0.6) {
     quizObj.passRate = passRate;
    
     quizObj.quizDOM.style.display = 'Flex'
+    progressElm.innerText = `${currentQ}/${questionsData.length}`;
 
     loadQues();
 }
