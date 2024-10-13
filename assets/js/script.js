@@ -174,6 +174,10 @@ class quiz {
         for (let i = 0; i < userAnswears.length; i++) {
             if (userAnswears[i] === questionsData[i].correct) {
                 this.totalScore++;
+                console.log(`${i + 1}. ${questionsData[i].title}, your answear: ${questionsData[i].answears[userAnswears[i]]}, was %ccorrect!`,  'color: #00FF00')
+            }
+            else {
+                console.log(`${i + 1}. ${questionsData[i].title}, your answear: ${questionsData[i].answears[userAnswears[i]]}, was %cincorrect!%c, the right answear was ${questionsData[i].answears[questionsData[i].correct]}`,  'color: #FF0000', '')
             }
         }
     }
@@ -267,6 +271,10 @@ function resetQuiz() {
     currentQ = 0;
     userAnswears = [];
     q = undefined;
+}
+
+function reviewQuiz() {
+
 }
 
 startQuiz();

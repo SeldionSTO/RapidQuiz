@@ -1,4 +1,5 @@
 # **RapidQuiz**
+**Version 1.1.0-alpha**
 
 <img src="assets/img/favicon.png" alt="RapidQuiz Logo" width="150" />
 
