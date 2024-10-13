@@ -38,7 +38,7 @@ RapidQuiz is a quiz application designed to test your knowledge on a variety of 
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/yourusername/RapidQuiz.git
+    git clone https://github.com/seldionsto/RapidQuiz.git
     ```
 
 2. **Navigate to the project directory**:
