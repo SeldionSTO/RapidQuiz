@@ -13,6 +13,7 @@ A simple and interactive multiple-choice quiz application to test your knowledge
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Future Enhancements](#future-enhancements)
+- [Tracking](#Tracking)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -79,6 +80,12 @@ RapidQuiz is a quiz application designed to test your knowledge on a variety of 
 - Implement user authentication to track quiz history.
 
 ---
+
+## **Tracking**
+[Trello](https://trello.com/b/OPqePHyi/rapidquiz)
+
+---
+
 
 ## **Contributing**
 
